@@ -35,38 +35,75 @@
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="text" id="searchBar" placeholder="Recherche...">
-                        <button class="btn btn-outline-success" type="submit">Recherche</button>
                     </form>
                 </div>
             </div>
         </nav>
     </header>
-    <main id="content">
-        <h1>titre</h1>
-        <p>bite</p>
-        <p>chocolat</p>
+    <main class="p-3">
+        <div class="row">
+
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">titre html</h5>
+                    <div class="card-body">
+                        <p class="card-text">para</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">titre css</h5>
+                    <div class="card-body">
+                        <p class="card-text">para</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">titre javascript</h5>
+                    <div class="card-body">
+                        <p class="card-text">para</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
     <footer class="py-3 bg-body-tertiary border-top">
         <p class="text-center text-body-secondary">© 2023 <a href=""></a> Worldercraft</p>
     </footer>
 
     <script>
+        // Ajout d'un écouteur d'événement 'input' à l'élément avec l'id 'searchBar'
         document.getElementById('searchBar').addEventListener('input', function (e) {
-            var searchTerm = e.target.value.toLowerCase();
-            var content = document.getElementById('content');
+            // Récupération de la valeur saisie dans la barre de recherche, convertie en minuscules
+            var recherche = e.target.value.toLowerCase();
 
-            // Supposons que vous avez des paragraphes dans votre contenu
-            var paragraphs = content.getElementsByTagName('p');
+            // Sélection de l'élément 'main' du document
+            var main = document.querySelector('main');
 
-            Array.from(paragraphs).forEach(function (paragraph) {
-                var text = paragraph.textContent;
-                if (text.toLowerCase().indexOf(searchTerm) !== -1) {
-                    paragraph.style.display = '';
+            // Récupération de tous les éléments de classe 'card' à l'intérieur de 'main'
+            var cards = main.getElementsByClassName('card');
+
+            // Conversion de la collection HTML en Array pour utiliser forEach
+            Array.from(cards).forEach(function (card) {
+                // Récupération du texte contenu dans la 'card' et conversion en minuscules
+                var text = card.textContent.toLowerCase();
+
+                // Vérification si le texte de la 'card' contient le terme de recherche
+                if (text.indexOf(recherche) !== -1) {
+                    // Si le texte contient le terme de recherche, la 'card' est affichée
+                    card.style.display = '';
                 } else {
-                    paragraph.style.display = 'none';
+                    // Sinon, la 'card' est cachée
+                    card.style.display = 'none';
                 }
             });
         });
+
     </script>
 </body>
 
