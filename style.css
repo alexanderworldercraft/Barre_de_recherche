@@ -1,0 +1,18 @@
+#background {
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -9999;
+}
+
+html,body {
+    height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
